@@ -16,7 +16,10 @@
       v-flex.mt-3 紹介の内容は自動で1枚の画像におしゃれにまとめられます。他の人が見てわかりやすい形で他己紹介できるのが特長です。
     v-layout(column).pa-5
       v-flex(pb-3) 利用規約に同意して
-      v-layout(justify-center)
+      v-layout(justify-center v-if="user")
+        v-btn(dark large :to="{ name: 'introduce-create' }").primary
+          span.font-weight-bold.headline さっそく紹介する
+      v-layout(justify-center v-else)
         v-btn(dark large @click="login").primary
           span.font-weight-bold.headline さっそく紹介する(Twitterログイン)
 </template>
